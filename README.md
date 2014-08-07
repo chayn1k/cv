@@ -1,2 +1,2 @@
-pavel.tchaikovsky.tk
+<http//pavel.tchaikovsky.tk/cv/>
 ====================
