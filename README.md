@@ -1,2 +1,1 @@
-pavel.tchaikovsky.tk
-====================
+See <http://pavel.tchaikovsky.tk/cv/>
