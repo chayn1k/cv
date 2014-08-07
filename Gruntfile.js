@@ -70,14 +70,12 @@ module.exports = function(grunt) {
                 dest: 'dist/assets/js/vendor',
                 expand: true, flatten: true, filter: 'isFile'
             },
-            //*
             css: {
                 cwd: 'assets',
                 src: [  'css/**/*.css' ],
                 dest: 'dist/assets/css',
                 expand: true, flatten: true, filter: 'isFile'
             },
-            //*/
             js: {
                 cwd: 'assets',
                 src: [  'js/**/*.js' ],
@@ -213,16 +211,14 @@ module.exports = function(grunt) {
         // COMPRESSORS
         cssmin: {
             main: {
-                /*
                 options: {
                     report: 'gzip'
                 },
-                //*/
                 files: {
                     'dist/css/_.min.css': [
-                        'dist/css/_.min.css',
                         'dist/assets/css/vendor/**/*.css',
-                        'dist/assets/css/*.css'
+                        'dist/assets/css/*.css',
+                        'dist/css/_.css'
                     ]
                 }
             }
@@ -271,7 +267,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['assets/js/**/*.js'],
-                tasks: ['dojs']
+                //tasks: ['dojs']
             },
             fonts: {
                 files: ['assets/fonts/**/*.*'],
@@ -313,17 +309,17 @@ module.exports = function(grunt) {
     // BATCHES
     grunt.registerTask(
         'development',
-        [ 'clean:all', 'docopy', 'stylus:main', 'cssmin:main'/*, 'clean:removeUnusedCss', 'autoprefixer'*/, 'uglify:build'/*, 'clean:removeUnusedJs'*/, 'stencil:development', 'devcode:development'/*, 'prettify'*/, 'copy:img'/*, 'jshint:development'*/, 'connect:server', 'watch' ]
+        [ 'clean:all', 'docopy', 'stylus:main', 'cssmin:main'/*, 'clean:removeUnusedCss', 'autoprefixer', 'uglify:build', 'clean:removeUnusedJs'*/, 'stencil:development', 'devcode:development'/*, 'prettify'*/, 'copy:img'/*, 'jshint:development'*/, 'connect:server', 'watch' ]
     );
 
     grunt.registerTask(
         'production',
-        [ 'clean:all', 'copy:main', 'docopy', 'stylus', 'cssmin', 'clean:removeUnusedCss'/*, 'autoprefixer'*/, 'uglify', 'clean:removeUnusedJs', 'stencil:production', 'devcode:production'/*, 'prettify', 'clean:img'*/, 'doimage'/*, 'jshint:production'*/ ]
+        [ 'clean:all', 'copy:main', 'docopy', 'stylus', 'cssmin', 'clean:removeUnusedCss'/*, 'autoprefixer', 'uglify', 'clean:removeUnusedJs'*/, 'stencil:production', 'devcode:production'/*, 'prettify', 'clean:img'*/, 'doimage'/*, 'jshint:production'*/ ]
     );
 
     grunt.registerTask(
         'docopy',
-        [ 'copy:jsVendor', 'copy:css', 'copy:js', 'copy:fonts', 'copy:img' ]
+        [ /*'copy:jsVendor',*/ 'copy:css'/*, 'copy:js'*/, 'copy:fonts', 'copy:img' ]
     );
 
     grunt.registerTask(
