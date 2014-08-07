@@ -1,1 +1,1 @@
-See <http://pavel.tchaikovsky.tk/cv/>
+See <http://pavel.tchaikovsky.tk/>
