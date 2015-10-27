@@ -1,9 +1,10 @@
 {
-  "name":     "pavel.tchaikovsky.tk",
-  "version":  "0.1.0",
-  "license":  "MIT",
-  "homepage": "http://pavel.tchaikovsky.tk/cv/",
-  "git":      "https://github.com/chayn1k/cv/",
+  "name": "pavel.tchaikovsky.tk",
+  "version": "0.2.0",
+  "license": "MIT",
+  "homepage": "http://pavel.tchaikovsky.tk/",
+  "git": "https://github.com/chayn1k/cv/",
+  "repository": "git@github.com:chayn1k/cv.git",
   "authors": [
     "Pavel Tchaikovsky <me@chayn1k.ru>"
   ],
@@ -36,9 +37,10 @@
     "autoprefixer-stylus": "*"
   },
   "devDependencies": {
-    "socket.io": "*",
+    "grunt-gh-pages": "^0.10.0",
+    "if-ie.styl": "git://github.com/kizu/if-ie.styl.git",
     "nib": "*",
-    "if-ie.styl": "git://github.com/kizu/if-ie.styl.git"
+    "socket.io": "*"
   },
   "scripts": {
     "preinstall": "npm i -g optipng jpegtran gifsicle"

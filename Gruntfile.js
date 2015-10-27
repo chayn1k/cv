@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     // autoload grunt tasks
     require('load-grunt-tasks')(grunt);
-    
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -15,12 +15,12 @@ module.exports = function(grunt) {
 
         clean: {
             all: {
-                src: [ 
+                src: [
                     'dist/**/*.html',
-                    'dist/assets/**/*.*', 
-                    'dist/css/**/*.css', 
-                    'dist/js/**/*.js', 
-                    'dist/fonts/**/*.*',  
+                    'dist/assets/**/*.*',
+                    'dist/css/**/*.css',
+                    'dist/js/**/*.js',
+                    'dist/fonts/**/*.*',
                     'dist/img/**/*.*',
                     'dist/pic/**/*.*'
                 ]
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 
 
         // STUFF TASKS
-        stylus: {      
+        stylus: {
             options: {
                 banner: '<%= banner %>',
                 define: {
@@ -230,9 +230,9 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'dist/js/main.min.js': [
-                        'dist/assets/js/*.js', 
-                        '!dist/assets/js/main.js', 
-                        'dist/assets/js/main.js' 
+                        'dist/assets/js/*.js',
+                        '!dist/assets/js/main.js',
+                        'dist/assets/js/main.js'
                     ]
                 }
             },
@@ -255,6 +255,15 @@ module.exports = function(grunt) {
                     dest: 'dist/js/vendor.min.js'
             }]
             }
+        },
+
+        'gh-pages': {
+            options: {
+                base: 'dist',
+                message: 'Update ' + grunt.template.today(),
+                tag: '<%= pkg.version %>',
+            },
+            src: ['**']
         },
 
         watch: {
@@ -315,6 +324,11 @@ module.exports = function(grunt) {
     grunt.registerTask(
         'production',
         [ 'clean:all', 'copy:main', 'docopy', 'stylus', 'cssmin', 'clean:removeUnusedCss'/*, 'autoprefixer', 'uglify', 'clean:removeUnusedJs'*/, 'stencil:production', 'devcode:production'/*, 'prettify', 'clean:img'*/, 'doimage'/*, 'jshint:production'*/ ]
+    );
+
+    grunt.registerTask (
+        'deploy',
+        [ 'production', 'gh-pages' ]
     );
 
     grunt.registerTask(
