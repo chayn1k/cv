@@ -55,7 +55,8 @@ module.exports = function(grunt) {
             main: {
                 cwd: 'assets',
                 src: [  'crossdomain.xml',
-                        'CNAME'
+                        'CNAME',
+                        '.nojekyll'
                     ],
                 dest: 'dist',
                 expand: true, flatten: true, filter: 'isFile'
@@ -262,6 +263,7 @@ module.exports = function(grunt) {
                 base: 'dist',
                 message: 'Update ' + grunt.template.today(),
                 tag: '<%= pkg.version %>',
+                dotfiles: true
             },
             src: ['**']
         },
